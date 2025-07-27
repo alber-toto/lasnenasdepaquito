@@ -28,7 +28,7 @@ function showMobileWarning() {
             // Mostrar el mensaje
             warning.style.display = 'flex';
             
-            // Ocultar después de 3 segundos con efecto de disolución
+            // Ocultar después de 6 segundos con efecto de disolución
             setTimeout(() => {
                 warning.classList.add('fade-out');
                 
@@ -36,7 +36,7 @@ function showMobileWarning() {
                 setTimeout(() => {
                     warning.style.display = 'none';
                 }, 500);
-            }, 3000);
+            }, 6000);
         }
     }
 }
