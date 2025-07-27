@@ -1,18 +1,28 @@
 /* Estilos retro del año 2005 - Las Nenas de Paquito Webcams Fullscreen */
 
+/* Forzar Comic Sans en todos los dispositivos */
+@font-face {
+    font-family: 'Comic Sans MS';
+    src: local('Comic Sans MS'), local('Comic Sans'), local('Chalkboard SE');
+    font-display: swap;
+}
+
 /* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif !important;
 }
 
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif !important;
     background: #000;
     color: #333;
     line-height: 1.6;
     overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Contenedor principal a pantalla completa */
@@ -541,6 +551,11 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+    /* Forzar Comic Sans en móviles */
+    html, body, * {
+        font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif !important;
+    }
+    
     .floating-menu {
         width: 200px;
         left: 10px;
