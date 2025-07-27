@@ -12,16 +12,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif !important;
+    font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', Arial, sans-serif !important;
 }
 
 /* Excepción para la marca de agua - mantener Impact */
 .watermark-text {
-    font-family: 'Impact', 'Arial Black', 'Helvetica Black', sans-serif !important;
+    font-family: 'Impact', 'Arial Black', 'Helvetica Black', Arial, sans-serif !important;
 }
 
 body {
-    font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif !important;
+    font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', Arial, sans-serif !important;
     background: #000;
     color: #333;
     line-height: 1.6;
@@ -558,12 +558,12 @@ body {
 @media (max-width: 768px) {
     /* Forzar Comic Sans en móviles */
     html, body, * {
-        font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif !important;
+        font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', Arial, sans-serif !important;
     }
     
     /* Excepción para la marca de agua en móviles */
     .watermark-text {
-        font-family: 'Impact', 'Arial Black', 'Helvetica Black', sans-serif !important;
+        font-family: 'Impact', 'Arial Black', 'Helvetica Black', Arial, sans-serif !important;
     }
     
     .floating-menu {
