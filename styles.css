@@ -15,6 +15,11 @@
     font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif !important;
 }
 
+/* Excepción para la marca de agua - mantener Impact */
+.watermark-text {
+    font-family: 'Impact', 'Arial Black', 'Helvetica Black', sans-serif !important;
+}
+
 body {
     font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif !important;
     background: #000;
@@ -554,6 +559,11 @@ body {
     /* Forzar Comic Sans en móviles */
     html, body, * {
         font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif !important;
+    }
+    
+    /* Excepción para la marca de agua en móviles */
+    .watermark-text {
+        font-family: 'Impact', 'Arial Black', 'Helvetica Black', sans-serif !important;
     }
     
     .floating-menu {
