@@ -9,7 +9,7 @@ Este sitio web está completamente optimizado para motores de búsqueda con las 
 ### Palabras Clave Principales
 - **las nenas de paquito**
 - **lasnenasdepaquito**
-- **lasnenasdepaquito.com**
+- **lasnenasdepaquito.es**
 - **aquí no hay quien viva**
 - **anhqv**
 - **erase una averia**
@@ -54,7 +54,7 @@ Este sitio web está completamente optimizado para motores de búsqueda con las 
 ## 🔧 Instalación
 1. Clona el repositorio
 2. Sube los archivos a tu servidor web
-3. Configura el dominio `lasnenasdepaquito.com`
+3. Configura el dominio `lasnenasdepaquito.es`
 4. Opcional: Configura Google Analytics en `analytics.js`
 
 ## 📊 Analytics
@@ -65,7 +65,7 @@ El sitio incluye configuración para Google Analytics para tracking de:
 - Tiempo de carga de página
 
 ## 🌐 URL Principal
-**https://lasnenasdepaquito.com**
+**https://lasnenasdepaquito.es**
 
 ## 📈 SEO Performance
 - PageSpeed Score: Optimizado

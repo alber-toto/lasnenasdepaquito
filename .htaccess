@@ -40,7 +40,7 @@
 # Redirect www to non-www
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.lasnenasdepaquito\.com [NC]
-RewriteRule ^(.*)$ https://lasnenasdepaquito.com/$1 [L,R=301]
+RewriteRule ^(.*)$ https://lasnenasdepaquito.es/$1 [L,R=301]
 
 # Force HTTPS
 RewriteCond %{HTTPS} off

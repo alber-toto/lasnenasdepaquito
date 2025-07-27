@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://lasnenasdepaquito.com/sitemap.xml
+Sitemap: https://lasnenasdepaquito.es/sitemap.xml
 
 # Crawl-delay para ser respetuoso con el servidor
 Crawl-delay: 1 

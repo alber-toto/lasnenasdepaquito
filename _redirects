@@ -1,17 +1,17 @@
 # Redirecciones SEO para Las Nenas de Paquito
 
 # Redirigir www a non-www
-https://www.lasnenasdepaquito.com/* https://lasnenasdepaquito.com/:splat 301!
+https://www.lasnenasdepaquito.es/* https://lasnenasdepaquito.es/:splat 301!
 
 # Redirigir HTTP a HTTPS
-http://lasnenasdepaquito.com/* https://lasnenasdepaquito.com/:splat 301!
+http://lasnenasdepaquito.es/* https://lasnenasdepaquito.es/:splat 301!
 
 # Redirigir www + HTTP a HTTPS
-http://www.lasnenasdepaquito.com/* https://lasnenasdepaquito.com/:splat 301!
+http://www.lasnenasdepaquito.es/* https://lasnenasdepaquito.es/:splat 301!
 
 # Redirigir trailing slashes
 /*/ /:splat 301!
 
-# Redirigir variaciones de dominio
-https://lasnenasdepaquito.es/* https://lasnenasdepaquito.com/:splat 301!
-https://www.lasnenasdepaquito.es/* https://lasnenasdepaquito.com/:splat 301! 
+# Redirigir variaciones de dominio (por si acaso)
+https://lasnenasdepaquito.com/* https://lasnenasdepaquito.es/:splat 301!
+https://www.lasnenasdepaquito.com/* https://lasnenasdepaquito.es/:splat 301! 
