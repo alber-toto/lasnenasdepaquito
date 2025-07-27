@@ -1,0 +1,777 @@
+/* Estilos retro del año 2005 - Las Nenas de Paquito Webcams Fullscreen */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: #000;
+    color: #333;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+/* Contenedor principal a pantalla completa */
+.fullscreen-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+}
+
+/* Video a pantalla completa */
+.fullscreen-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.fullscreen-video-container video {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover; /* Modo fill - cubre toda la pantalla */
+    object-position: center; /* Centra el video */
+    /* Ocultar controles del video */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Ocultar controles del video en todos los navegadores */
+.fullscreen-video-container video::-webkit-media-controls {
+    display: none !important;
+}
+
+.fullscreen-video-container video::-webkit-media-controls-panel {
+    display: none !important;
+}
+
+.fullscreen-video-container video::-webkit-media-controls-play-button {
+    display: none !important;
+}
+
+.fullscreen-video-container video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+}
+
+.fullscreen-video-container video::-webkit-media-controls-timeline {
+    display: none !important;
+}
+
+.fullscreen-video-container video::-webkit-media-controls-current-time-display {
+    display: none !important;
+}
+
+.fullscreen-video-container video::-webkit-media-controls-time-remaining-display {
+    display: none !important;
+}
+
+.fullscreen-video-container video::-webkit-media-controls-mute-button {
+    display: none !important;
+}
+
+.fullscreen-video-container video::-webkit-media-controls-volume-slider {
+    display: none !important;
+}
+
+.fullscreen-video-container video::-webkit-media-controls-fullscreen-button {
+    display: none !important;
+}
+
+/* Firefox */
+.fullscreen-video-container video::-moz-media-controls {
+    display: none !important;
+}
+
+/* Edge/IE */
+.fullscreen-video-container video::-ms-media-controls {
+    display: none !important;
+}
+
+/* Marca de agua sobre el video */
+.video-watermark {
+    position: absolute;
+    bottom: 120px;
+    right: 80px;
+    z-index: 10; /* Por debajo de otros elementos pero sobre el video */
+    pointer-events: none; /* No interfiere con clics */
+}
+
+.watermark-text {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 4.5em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 
+        -3px -3px 0 #000,
+        3px -3px 0 #000,
+        -3px 3px 0 #000,
+        3px 3px 0 #000,
+        0px 6px 12px rgba(0,0,0,0.8);
+    letter-spacing: 2px;
+    opacity: 0.9;
+    display: block;
+    white-space: nowrap;
+}
+
+/* Overlay del video */
+.webcam-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 1500; /* Z-index mayor que el menú */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent; /* Sin fondo */
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none; /* Sin contorno */
+}
+
+.webcam-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.webcam-date {
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.webcam-time {
+    color: #ffeb3b;
+    font-size: 1.1em;
+    font-family: 'Courier New', monospace;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    font-weight: bold;
+}
+
+.live-indicator-video {
+    color: #ff4444;
+    font-weight: bold;
+    font-size: 1.1em;
+    animation: blink 1s infinite;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+/* Menú flotante lateral */
+.floating-menu {
+    position: absolute;
+    top: 120px; /* Bajada de 80px a 120px */
+    left: 20px;
+    width: 250px;
+    background: transparent; /* Fondo transparente */
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: none; /* Sin sombra en el contenedor */
+    z-index: 1000; /* Z-index menor que la barra superior */
+    transition: all 0.3s ease;
+    max-height: calc(100vh - 140px); /* Ajustado para la nueva posición */
+    overflow-y: auto;
+}
+
+.floating-menu.hidden {
+    transform: translateX(-100%); /* Se desliza hacia la izquierda */
+}
+
+.menu-box {
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    border: 2px solid #ff9800;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+}
+
+.menu-title {
+    color: #e65100;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.menu-list {
+    list-style: none;
+}
+
+.menu-list li {
+    margin-bottom: 8px;
+}
+
+.menu-link {
+    display: block;
+    padding: 8px 12px;
+    background: linear-gradient(90deg, #ff5722, #ff7043);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu-link:hover, .menu-link.active {
+    background: linear-gradient(90deg, #d84315, #e64a19);
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.menu-link.active {
+    background: linear-gradient(90deg, #4caf50, #66bb6a);
+    border: 2px solid #2e7d32;
+}
+
+/* Controls box */
+.controls-box {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border: 2px solid #2196f3;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+}
+
+.controls-box h4 {
+    color: #1565c0;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.control-item {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #1976d2;
+    font-weight: bold;
+}
+
+/* Status box */
+.status-box {
+    background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+    border: 2px solid #4caf50;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+}
+
+.status-box h4 {
+    color: #2e7d32;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.status-item {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.status-text {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.status-text.offline {
+    color: #f44336;
+    font-weight: bold;
+}
+
+/* Contador de visitantes */
+.counter-box {
+    background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+    border: 2px solid #9c27b0;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+.counter-box h4 {
+    color: #7b1fa2;
+    margin-bottom: 10px;
+}
+
+.counter {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #4a148c;
+    font-family: 'Courier New', monospace;
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #9c27b0;
+}
+
+.counter-text {
+    color: #6a1b9a;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Chat box */
+.chat-box {
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    border: 2px solid #ff9800;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+}
+
+.chat-box h4 {
+    color: #e65100;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.chat-messages {
+    max-height: 150px;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.7);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.chat-msg {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    padding: 3px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Botón toggle del menú */
+.menu-toggle {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 2000; /* Z-index más alto que el menú */
+    display: none; /* Oculto por defecto en PC */
+}
+
+.menu-toggle:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 30px rgba(255,107,107,0.8);
+}
+
+.toggle-icon {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.menu-toggle.hidden {
+    left: 20px;
+}
+
+
+
+/* Ocultar marca de agua del video cuando el menú está oculto */
+.video-watermark.hidden {
+    display: none;
+}
+
+/* Chat box en el menú lateral */
+.chat-box {
+    background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+    border: 2px solid #4caf50;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+}
+
+.chat-box h4 {
+    color: #2e7d32;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.chat-button {
+    width: 100%;
+    background: linear-gradient(45deg, #4caf50, #66bb6a);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.chat-button:hover {
+    background: linear-gradient(45deg, #388e3c, #4caf50);
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+}
+
+.chat-button:active {
+    transform: translateY(0);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.chat-button-text {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Mensaje de advertencia para móviles */
+.mobile-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Z-index muy alto para estar sobre todo */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.mobile-warning.fade-out {
+    opacity: 0;
+}
+
+.warning-content {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    border: 3px solid #ff4444;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    max-width: 90%;
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.8);
+    animation: warningPulse 2s infinite;
+}
+
+.warning-content h3 {
+    color: white;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    font-family: 'Impact', 'Arial Black', sans-serif;
+}
+
+.warning-content p {
+    color: white;
+    font-size: 1.2em;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    font-weight: bold;
+}
+
+@keyframes warningPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Animación rainbow para el título principal */
+@keyframes rainbow {
+    0% { color: #ff0000; }
+    14% { color: #ff7f00; }
+    28% { color: #ffff00; }
+    42% { color: #00ff00; }
+    57% { color: #0000ff; }
+    71% { color: #4b0082; }
+    85% { color: #9400d3; }
+    100% { color: #ff0000; }
+}
+
+/* Animación de parpadeo */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Animación de transición de webcam */
+@keyframes transition {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Scrollbar personalizada - OCULTA */
+::-webkit-scrollbar {
+    width: 0px; /* Ocultar scrollbar */
+    display: none; /* Ocultar completamente */
+}
+
+::-webkit-scrollbar-track {
+    display: none; /* Ocultar track */
+}
+
+::-webkit-scrollbar-thumb {
+    display: none; /* Ocultar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    display: none; /* Ocultar hover */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .floating-menu {
+        width: 200px;
+        left: 10px;
+    }
+    
+    .webcam-overlay {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        padding: 5px 15px;
+    }
+    
+    .webcam-date {
+        font-size: 0.8em;
+    }
+    
+    .webcam-time {
+        font-size: 0.9em;
+    }
+    
+    /* Mostrar botón de menú solo en móviles */
+    .menu-toggle {
+        display: block;
+    }
+} 
+
+/* Estilos para iconos */
+.date-icon {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.webcam-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.menu-link:hover .webcam-icon {
+    filter: brightness(1.2) contrast(1.1); /* Efecto hover sutil */
+}
+
+.menu-link.active .webcam-icon {
+    filter: brightness(1.2) contrast(1.1); /* Efecto activo sutil */
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    filter: brightness(0) invert(1); /* Hace el icono blanco para el botón */
+}
+
+/* Ajustar el espaciado del texto en los enlaces del menú */
+.menu-link {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #fff, #f0f0f0);
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    position: relative;
+}
+
+.menu-link:hover {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    color: #1565c0;
+    transform: translateX(5px);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.menu-link.active {
+    background: linear-gradient(135deg, #1565c0, #1976d2);
+    color: white;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+}
+
+/* Estilos para las teclas con números */
+.key-number {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background-image: url('https://metrosexual.lasnenasdepaquito.es/iconos/tecla.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: invert(1); /* Invertir colores de la imagen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Ajustar el espaciado de la fecha para acomodar el icono */
+.webcam-date {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    margin-right: 20px;
+}
+
+/* Ajustar el botón del menú para acomodar el icono */
+.toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    font-size: 0.8em;
+} 
+
+/* Botón para abrir chat */
+.chat-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #4caf50, #66bb6a);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 1500;
+}
+
+.chat-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.4);
+}
+
+.chat-toggle.hidden {
+    display: none;
+}
+
+.chat-toggle-icon {
+    font-size: 0.9em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Ventana de chat flotante */
+.chat-window {
+    position: fixed;
+    bottom: -500px; /* Inicialmente oculta */
+    right: 20px;
+    width: 400px;
+    height: 500px; /* Altura reducida */
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border: 3px solid #2196f3;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    z-index: 2000;
+    transition: bottom 0.3s ease;
+    overflow: hidden;
+}
+
+.chat-window.open {
+    bottom: 20px;
+}
+
+.chat-header {
+    background: linear-gradient(45deg, #2196f3, #1976d2);
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #1565c0;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.chat-close {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    transition: all 0.2s ease;
+}
+
+.chat-close:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+.chat-content {
+    height: calc(100% - 50px); /* Altura menos el header */
+    padding: 0; /* Sin padding para que ocupe todo el espacio */
+    background: transparent; /* Fondo transparente */
+    display: flex;
+    align-items: stretch;
+}
+
+.chat-content chat-room {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0; /* Sin bordes redondeados para ocupar todo */
+    background: transparent !important; /* Fondo transparente para el chat */
+    flex: 1; /* Ocupa todo el espacio disponible */
+} 
+
+/* Ocultar barra superior */
+.webcam-overlay.hidden {
+    display: none;
+} 

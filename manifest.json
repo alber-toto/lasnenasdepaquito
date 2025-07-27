@@ -1,0 +1,25 @@
+{
+    "name": "Las Nenas de Paquito - Webcam en Vivo",
+    "short_name": "Las Nenas de Paquito",
+    "description": "Webcam en vivo desde el piso de Aquí No Hay Quien Viva. Alicia Sanz y Belén López Vázquez en directo.",
+    "start_url": "/",
+    "display": "fullscreen",
+    "background_color": "#000000",
+    "theme_color": "#ff0000",
+    "orientation": "landscape",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "categories": ["entertainment", "video"],
+    "lang": "es",
+    "dir": "ltr"
+} 

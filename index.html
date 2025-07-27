@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Las Nenas de Paquito - Webcam en Vivo | Aquí No Hay Quien Viva | ANHQV</title>
+    <meta name="description" content="Las Nenas de Paquito - Webcam en vivo desde el piso de Aquí No Hay Quien Viva. Alicia Sanz y Belén López Vázquez en directo. Erase Una Avería en tiempo real.">
+    <meta name="keywords" content="las nenas de paquito, lasnenasdepaquito, lasnenasdepaquito.com, aquí no hay quien viva, anhqv, erase una averia, alicia sanz, belen lopez vazquez, webcam en vivo, directo, piso, salon, cocina, dormitorio">
+    <meta name="author" content="Las Nenas de Paquito">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lasnenasdepaquito.com/">
+    <meta property="og:title" content="Las Nenas de Paquito - Webcam en Vivo | Aquí No Hay Quien Viva">
+    <meta property="og:description" content="Webcam en vivo desde el piso de Aquí No Hay Quien Viva. Alicia Sanz y Belén López Vázquez en directo.">
+    <meta property="og:image" content="https://lasnenasdepaquito.com/og-image.jpg">
+    <meta property="og:site_name" content="Las Nenas de Paquito">
+    <meta property="og:locale" content="es_ES">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lasnenasdepaquito.com/">
+    <meta property="twitter:title" content="Las Nenas de Paquito - Webcam en Vivo">
+    <meta property="twitter:description" content="Webcam en vivo desde el piso de Aquí No Hay Quien Viva. Alicia Sanz y Belén López Vázquez en directo.">
+    <meta property="twitter:image" content="https://lasnenasdepaquito.com/twitter-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lasnenasdepaquito.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ff0000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Las Nenas de Paquito">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://metrosexual.lasnenasdepaquito.es">
+    <link rel="preconnect" href="https://chitchatter.im">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Las Nenas de Paquito",
+        "url": "https://lasnenasdepaquito.com",
+        "description": "Webcam en vivo desde el piso de Aquí No Hay Quien Viva. Alicia Sanz y Belén López Vázquez en directo.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Las Nenas de Paquito"
+        },
+        "potentialAction": {
+            "@type": "WatchAction",
+            "target": "https://lasnenasdepaquito.com"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Las Nenas de Paquito - Webcam en Vivo",
+        "description": "Webcam en vivo desde el piso de Aquí No Hay Quien Viva con Alicia Sanz y Belén López Vázquez",
+        "thumbnailUrl": "https://lasnenasdepaquito.com/thumbnail.jpg",
+        "uploadDate": "2024-01-01T00:00:00Z",
+        "duration": "PT24H",
+        "contentUrl": "https://metrosexual.lasnenasdepaquito.es/test.webm",
+        "embedUrl": "https://lasnenasdepaquito.com",
+        "interactionStatistic": {
+            "@type": "InteractionCounter",
+            "interactionType": "https://schema.org/WatchAction",
+            "userInteractionCount": 1247
+        }
+    }
+    </script>
+    
+    <script src="https://chitchatter.im/sdk.js"></script>
+</head>
+<body>
+    <div class="fullscreen-container">
+        <!-- Video a pantalla completa -->
+        <div class="fullscreen-video-container">
+            <div class="webcam-overlay">
+                <div class="webcam-info">
+                    <span class="webcam-date" id="webcam-date">
+                        <img src="https://metrosexual.lasnenasdepaquito.es/iconos/calendario.png" alt="Calendario" class="date-icon">
+                        Cargando...
+                    </span>
+                    <span class="webcam-time" id="webcam-time">00:00:00</span>
+                </div>
+                <div class="live-indicator-video">EN VIVO</div>
+            </div>
+            <video 
+                id="webcam-video"
+                width="100%" 
+                height="100%" 
+                src="https://metrosexual.lasnenasdepaquito.es/test.webm" 
+                autoplay 
+                muted 
+                loop 
+                playsinline
+                controls="false"
+                title="Las Nenas de Paquito - Webcam en Vivo desde Aquí No Hay Quien Viva">
+            </video>
+            
+            <!-- Marca de agua sobre el video -->
+            <div class="video-watermark">
+                <span class="watermark-text">lasnenasdepaquito.es</span>
+            </div>
+        </div>
+
+        <!-- Menú flotante lateral -->
+        <div class="floating-menu">
+            <div class="menu-box">
+                <h3 class="menu-title">WEBCAMS</h3>
+                <ul class="menu-list">
+                    <li>
+                        <a href="#salon" class="menu-link active" onclick="changeWebcam('salon')" title="Webcam del Salón - Las Nenas de Paquito">
+                            <img src="https://metrosexual.lasnenasdepaquito.es/iconos/sofa.png" alt="Sofá del Salón" class="webcam-icon">
+                            SALON
+                            <div class="key-number">1</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#cocina" class="menu-link" onclick="changeWebcam('cocina')" title="Webcam de la Cocina - Las Nenas de Paquito">
+                            <img src="https://metrosexual.lasnenasdepaquito.es/iconos/chef.png" alt="Chef de la Cocina" class="webcam-icon">
+                            COCINA
+                            <div class="key-number">2</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#dormitorio" class="menu-link" onclick="changeWebcam('dormitorio')" title="Webcam del Dormitorio - Las Nenas de Paquito">
+                            <img src="https://metrosexual.lasnenasdepaquito.es/iconos/demonio.png" alt="Demonio del Dormitorio" class="webcam-icon">
+                            DORMITORIO
+                            <div class="key-number">3</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="controls-box">
+                <h4>CONTROLES</h4>
+                <p class="control-item">ESC: Mostrar/Ocultar Menu</p>
+                <p class="control-item">1 - 2 - 3: Cambio de Cámara</p>
+                <p class="control-item">F11: Pantalla Completa</p>
+            </div>
+
+            <div class="chat-box">
+                <h4>CHAT EN VIVO</h4>
+                <button class="chat-button" onclick="toggleChat()">
+                    <span class="chat-button-text">ABRIR CHAT</span>
+                </button>
+            </div>
+
+            <div class="counter-box">
+                <h4>VISITAS TOTALES</h4>
+                <p class="counter">1,247</p>
+                <p class="counter-text">¡Gracias por visitarnos!</p>
+            </div>
+            
+            <div class="status-box">
+                <h4>ESTADO DEL SERVIDOR</h4>
+                <p class="status-item">OK Salon: <span class="status-text">EN LINEA</span></p>
+                <p class="status-item">ERROR Cocina: <span class="status-text offline">FUERA DE SERVICIO</span></p>
+                <p class="status-item">ERROR Dormitorio: <span class="status-text offline">FUERA DE SERVICIO</span></p>
+            </div>
+        </div>
+
+        <!-- Botón para mostrar/ocultar menú -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span class="toggle-icon">MENU</span>
+        </div>
+
+        <!-- Ventana de chat flotante -->
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                <h3>CHAT EN VIVO</h3>
+                <button class="chat-close" onclick="toggleChat()">X</button>
+            </div>
+            <div class="chat-content">
+                <chat-room width="100%" height="100%" room="f9aac0bf-31ff-4d32-80b3-cb43403b6d30" />
+            </div>
+        </div>
+        
+        <!-- Mensaje de advertencia para móviles -->
+        <div class="mobile-warning" id="mobile-warning">
+            <div class="warning-content">
+                <h3>⚠️ AVISO</h3>
+                <p>Los teléfonos multimedia no son del todo compatibles con el sitio web.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido SEO oculto para motores de búsqueda -->
+    <div class="seo-content" style="position: absolute; left: -9999px; top: -9999px;">
+        <h1>Las Nenas de Paquito - Webcam en Vivo</h1>
+        <h2>Aquí No Hay Quien Viva - ANHQV</h2>
+        <p>Bienvenidos a lasnenasdepaquito.com, la webcam en vivo desde el piso de Aquí No Hay Quien Viva. Disfruta de Alicia Sanz y Belén López Vázquez en directo las 24 horas del día.</p>
+        <p>Erase Una Avería en tiempo real desde el salón, la cocina y el dormitorio del famoso piso de ANHQV.</p>
+        <h3>Webcams Disponibles</h3>
+        <ul>
+            <li>Webcam del Salón - Las Nenas de Paquito en vivo</li>
+            <li>Webcam de la Cocina - Alicia Sanz y Belén López Vázquez</li>
+            <li>Webcam del Dormitorio - Aquí No Hay Quien Viva en directo</li>
+        </ul>
+        <p>Visita lasnenasdepaquito.com para ver las webcams en vivo de Las Nenas de Paquito desde el piso de Aquí No Hay Quien Viva.</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html> 
