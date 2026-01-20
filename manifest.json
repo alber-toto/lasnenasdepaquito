@@ -1,7 +1,7 @@
 {
-    "name": "Las Nenas de Paquito - Webcam en Vivo",
+    "name": "Las Nenas de Paquito - Webcam en Directo",
     "short_name": "Las Nenas de Paquito",
-    "description": "Webcam en vivo desde el piso de Aquí No Hay Quien Viva. Alicia Sanz y Belén López Vázquez en directo.",
+    "description": "Webcam en Directo desde el piso de Desengaño 21. Alicia Sanz y Belén López Vázquez en directo.",
     "start_url": "/",
     "display": "fullscreen",
     "background_color": "#000000",

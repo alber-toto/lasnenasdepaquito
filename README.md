@@ -1,7 +1,7 @@
-# Las Nenas de Paquito - Webcam en Vivo
+# Las Nenas de Paquito - Webcam en Directo
 
 ## 🎥 Descripción
-Webcam en vivo desde el piso de **Aquí No Hay Quien Viva** con **Alicia Sanz** y **Belén López Vázquez** en directo las 24 horas del día.
+Webcam en Directo desde el piso de **Desengaño 21** con **Alicia Sanz** y **Belén López Vázquez** en directo las 24 horas del día.
 
 ## 🔍 SEO Optimizado
 Este sitio web está completamente optimizado para motores de búsqueda con las siguientes características:
@@ -10,7 +10,7 @@ Este sitio web está completamente optimizado para motores de búsqueda con las 
 - **las nenas de paquito**
 - **lasnenasdepaquito**
 - **lasnenasdepaquito.es**
-- **aquí no hay quien viva**
+- **Desengaño 21**
 - **anhqv**
 - **erase una averia**
 - **alicia sanz**
@@ -35,16 +35,16 @@ Este sitio web está completamente optimizado para motores de búsqueda con las 
 - ✅ Title attributes en enlaces
 
 ## 🚀 Características
-- **Webcam en Vivo**: Transmisión 24/7 desde el piso de ANHQV
+- **Webcam en Directo**: Transmisión 24/7 desde el piso de ANHQV
 - **Múltiples Cámaras**: Salón, Cocina y Dormitorio
-- **Chat en Vivo**: Interacción en tiempo real
+- **Chat en directo**: Interacción en tiempo real
 - **Diseño Responsivo**: Compatible con todos los dispositivos
 - **PWA Ready**: Instalable como aplicación móvil
 
 ## 📱 Webcams Disponibles
-1. **Salón** - Las Nenas de Paquito en vivo
+1. **Salón** - Las Nenas de Paquito en directo
 2. **Cocina** - Alicia Sanz y Belén López Vázquez
-3. **Dormitorio** - Aquí No Hay Quien Viva en directo
+3. **Dormitorio** - Desengaño 21 en directo
 
 ## 🎮 Controles
 - **ESC**: Mostrar/Ocultar Menú
@@ -77,7 +77,7 @@ El sitio incluye configuración para Google Analytics para tracking de:
 ## 🎯 Objetivo SEO
 Posicionar en Google para las búsquedas relacionadas con:
 - "las nenas de paquito webcam"
-- "aquí no hay quien viva en vivo"
+- "Desengaño 21 en directo"
 - "alicia sanz belen lopez vazquez"
 - "anhqv webcam"
 - "erase una averia directo"

@@ -48,15 +48,15 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .fullscreen-video-container video {
     width: 100%;
     height: 100%;
     border: none;
-    position: absolute;
-    top: 0;
-    left: 0;
     object-fit: cover; /* Modo fill - cubre toda la pantalla */
     object-position: center; /* Centra el video */
     /* Ocultar controles del video */
@@ -310,6 +310,41 @@ body {
     font-weight: bold;
 }
 
+/* Credits box */
+.credits-box {
+    background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+    border: 2px solid #9c27b0;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+.credits-box h4 {
+    color: #7b1fa2;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.credits-text {
+    color: #4a148c;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.credits-link {
+    color: #7b1fa2;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.credits-link:hover {
+    color: #4a148c;
+    text-decoration: underline;
+}
+
 /* Contador de visitantes */
 .counter-box {
     background: linear-gradient(135deg, #f3e5f5, #e1bee7);
@@ -460,20 +495,22 @@ body {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* Mensaje de advertencia para móviles */
+/* Mensaje de advertencia para móviles - discreto estilo 2005 */
 .mobile-warning {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    background: transparent;
     display: none; /* Oculto por defecto */
     justify-content: center;
     align-items: center;
     z-index: 10000; /* Z-index muy alto para estar sobre todo */
     opacity: 1;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .mobile-warning.fade-out {
@@ -481,30 +518,26 @@ body {
 }
 
 .warning-content {
-    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-    border: 3px solid #ff4444;
-    border-radius: 15px;
-    padding: 30px;
+    background: linear-gradient(135deg, #ffcc00, #ff9900);
+    border: 2px solid #ff6600;
+    border-radius: 8px;
+    padding: 12px 20px;
     text-align: center;
-    max-width: 90%;
-    box-shadow: 0 0 30px rgba(255, 107, 107, 0.8);
-    animation: warningPulse 2s infinite;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    animation: none;
 }
 
 .warning-content h3 {
-    color: white;
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    font-family: 'Impact', 'Arial Black', sans-serif;
+    display: none;
 }
 
 .warning-content p {
-    color: white;
-    font-size: 1.2em;
-    line-height: 1.4;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    color: #000;
+    font-size: 0.95em;
+    line-height: 1.3;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
     font-weight: bold;
+    margin: 0;
 }
 
 @keyframes warningPulse {
@@ -566,29 +599,413 @@ body {
         font-family: 'Impact', 'Arial Black', 'Helvetica Black', Arial, sans-serif !important;
     }
     
-    .floating-menu {
-        width: 200px;
-        left: 10px;
+    /* Video adaptado a móvil - SE ADAPTA AL ANCHO */
+    .fullscreen-video-container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
     }
     
+    .fullscreen-video-container video {
+        object-fit: contain; /* Se adapta al ancho manteniendo proporción */
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    /* Marca de agua - relativa al contenedor del video */
+    .video-watermark {
+        position: absolute;
+        bottom: 15%;
+        right: 5%;
+        left: auto;
+        transform: none;
+        text-align: right;
+        z-index: 10;
+    }
+    
+    .watermark-text {
+        font-size: 1.5em; /* Proporcional a móvil */
+        letter-spacing: 1px;
+    }
+    
+    /* Barra superior compacta - relativa al video */
     .webcam-overlay {
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        padding: 5px 15px;
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        right: 5%;
+        padding: 5px 10px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para legibilidad */
+        border-radius: 8px;
+        z-index: 1500;
+    }
+    
+    .webcam-info {
+        flex-direction: column;
+        gap: 2px;
+        align-items: flex-start;
     }
     
     .webcam-date {
-        font-size: 0.8em;
+        font-size: 0.6em;
+        line-height: 1.2;
+    }
+    
+    .date-icon {
+        width: 14px;
+        height: 14px;
+        margin-right: 3px;
     }
     
     .webcam-time {
+        font-size: 0.65em;
+        line-height: 1.2;
+    }
+    
+    .live-indicator-video {
+        font-size: 0.7em;
+    }
+    
+    /* Menú lateral adaptado con mejor scroll */
+    .floating-menu {
+        width: 80%;
+        max-width: 280px;
+        left: 10px;
+        top: 65px;
+        max-height: calc(100vh - 140px);
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .floating-menu.hidden {
+        transform: translateX(-110%);
+    }
+    
+    /* Cajas del menú más compactas */
+    .menu-box,
+    .controls-box,
+    .status-box,
+    .counter-box,
+    .chat-box,
+    .credits-box {
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+    
+    .menu-title,
+    .controls-box h4,
+    .status-box h4,
+    .counter-box h4,
+    .chat-box h4,
+    .credits-box h4 {
+        font-size: 0.95em;
+        margin-bottom: 6px;
+    }
+    
+    .credits-text {
+        font-size: 0.75em;
+    }
+    
+    .menu-link {
+        padding: 7px 8px;
+        font-size: 0.8em;
+        margin-bottom: 4px;
+    }
+    
+    .webcam-icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
+    }
+    
+    .key-number {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+        top: -5px;
+        right: -5px;
+    }
+    
+    .control-item {
+        font-size: 0.7em;
+        margin-bottom: 3px;
+        line-height: 1.3;
+    }
+    
+    .status-item {
+        font-size: 0.7em;
+        margin-bottom: 3px;
+        line-height: 1.3;
+    }
+    
+    .counter {
+        font-size: 1.1em;
+        padding: 4px 8px;
+    }
+    
+    .counter-text {
+        font-size: 0.7em;
+    }
+    
+    .chat-button {
+        padding: 8px 10px;
+        font-size: 0.85em;
+    }
+    
+    /* Botón de menú móvil - más grande */
+    .menu-toggle {
+        display: block;
+        top: 10px;
+        left: 10px;
+        transform: none;
+        padding: 10px 16px;
+        font-size: 0.85em;
+        z-index: 2001;
+    }
+    
+    .toggle-icon {
+        font-size: 1em;
+    }
+    
+    /* Botón de chat ajustado para móvil */
+    .chat-toggle {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 12px;
+        font-size: 0.8em;
+    }
+    
+    /* Ventana de chat adaptada */
+    .chat-window {
+        width: 90%;
+        max-width: 340px;
+        height: 60vh;
+        max-height: 450px;
+        right: 5%;
+        bottom: -500px;
+    }
+    
+    .chat-window.open {
+        bottom: 15px;
+    }
+    
+    .chat-header {
+        padding: 8px 10px;
+    }
+    
+    .chat-header h3 {
         font-size: 0.9em;
     }
     
-    /* Mostrar botón de menú solo en móviles */
+    .chat-close {
+        width: 20px;
+        height: 20px;
+        font-size: 0.85em;
+    }
+    
+    .chat-content {
+        height: calc(100% - 40px);
+    }
+}
+
+/* Responsive para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    /* Video optimizado para móviles pequeños - SE ADAPTA AL ANCHO */
+    .fullscreen-video-container video {
+        object-fit: contain;
+    }
+    
+    /* Marca de agua - relativa al video */
+    .video-watermark {
+        bottom: 12%;
+        right: 4%;
+    }
+    
+    .watermark-text {
+        font-size: 1.2em; /* Proporcional a móvil pequeño */
+    }
+    
+    /* Barra superior - relativa al video */
+    .webcam-overlay {
+        top: 12%;
+        left: 4%;
+        right: 4%;
+        padding: 4px 8px;
+        gap: 1px;
+    }
+    
+    .webcam-date {
+        font-size: 0.55em;
+    }
+    
+    .date-icon {
+        width: 12px;
+        height: 12px;
+        margin-right: 2px;
+    }
+    
+    .webcam-time {
+        font-size: 0.6em;
+    }
+    
+    .live-indicator-video {
+        font-size: 0.65em;
+    }
+    
+    /* Menú más estrecho */
+    .floating-menu {
+        width: 90%;
+        max-width: 250px;
+        top: 55px;
+    }
+    
+    .menu-title,
+    .controls-box h4,
+    .status-box h4,
+    .counter-box h4,
+    .chat-box h4,
+    .credits-box h4 {
+        font-size: 0.9em;
+        margin-bottom: 6px;
+    }
+    
+    .credits-text {
+        font-size: 0.7em;
+    }
+    
+    .menu-link {
+        padding: 5px 7px;
+        font-size: 0.8em;
+    }
+    
+    .webcam-icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
+    }
+    
+    .key-number {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+    
+    .control-item,
+    .status-item,
+    .counter-text {
+        font-size: 0.7em;
+    }
+    
+    .counter {
+        font-size: 1.1em;
+    }
+    
+    .chat-button {
+        padding: 7px 10px;
+        font-size: 0.85em;
+    }
+    
     .menu-toggle {
-        display: block;
+        padding: 8px 14px;
+        font-size: 0.8em;
+    }
+    
+    /* Barra superior más pequeña */
+    .webcam-overlay {
+        padding: 3px 8px;
+        gap: 1px;
+    }
+    
+    .webcam-date {
+        font-size: 0.45em;
+    }
+    
+    .date-icon {
+        width: 10px;
+        height: 10px;
+        margin-right: 2px;
+    }
+    
+    .webcam-time {
+        font-size: 0.5em;
+    }
+    
+    .live-indicator-video {
+        font-size: 0.55em;
+    }
+    
+    /* Chat window más pequeña */
+    .chat-window {
+        width: 95%;
+        height: 350px;
+        right: 2.5%;
+    }
+    
+    .chat-header h3 {
+        font-size: 0.85em;
+    }
+}
+
+/* Modo landscape móvil */
+@media (max-width: 768px) and (orientation: landscape) {
+    /* En landscape, usar más el ancho disponible */
+    .floating-menu {
+        width: 40%;
+        max-width: 280px;
+        max-height: calc(100vh - 80px);
+        top: 50px;
+    }
+    
+    .webcam-overlay {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        top: 10px;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .webcam-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    /* Marca de agua - relativa al video en landscape */
+    .video-watermark {
+        bottom: 18%;
+        right: 6%;
+    }
+    
+    .watermark-text {
+        font-size: 1.8em; /* Proporcional a landscape */
+    }
+    
+    /* Barra superior - relativa al video */
+    .webcam-overlay {
+        top: 18%;
+        left: 6%;
+        right: auto;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .chat-window {
+        width: 50%;
+        max-width: 400px;
+        height: 70vh;
     }
 } 
 
@@ -710,7 +1127,6 @@ body {
     transition: all 0.3s ease;
     z-index: 1500;
 }
-
 .chat-toggle:hover {
     transform: translateY(-2px);
     box-shadow: 4px 4px 12px rgba(0,0,0,0.4);
@@ -721,6 +1137,7 @@ body {
 }
 
 .chat-toggle-icon {
+    font-size: 0.9em;
     font-size: 0.9em;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }

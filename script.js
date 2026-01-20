@@ -5,7 +5,7 @@ const webcams = {
     salon: {
         name: "Salon",
         videoUrl: "https://metrosexual.lasnenasdepaquito.es/test.webm",
-        description: "¡Disfruta de la transmisión en vivo desde nuestro salón! Aquí puedes ver todo lo que pasa en tiempo real.",
+        description: "¡Disfruta de la transmisión en directo desde nuestro salón! Aquí puedes ver todo lo que pasa en tiempo real.",
         viewers: 42
     }
 };
@@ -28,15 +28,15 @@ function showMobileWarning() {
             // Mostrar el mensaje
             warning.style.display = 'flex';
             
-            // Ocultar después de 6 segundos con efecto de disolución
+            // Ocultar después de 2.5 segundos con efecto de disolución
             setTimeout(() => {
                 warning.classList.add('fade-out');
                 
                 // Remover completamente después de la transición
                 setTimeout(() => {
                     warning.style.display = 'none';
-                }, 500);
-            }, 6000);
+                }, 300);
+            }, 2500);
         }
     }
 }
@@ -79,6 +79,17 @@ function initPage() {
         
         // Mostrar advertencia para móviles
         showMobileWarning();
+        
+        // Ocultar menú en móviles por defecto
+        if (isMobile()) {
+            const menu = document.querySelector('.floating-menu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (menu && toggle) {
+                menu.classList.add('hidden');
+                menuVisible = false;
+                console.log("📱 Menú oculto por defecto en móvil");
+            }
+        }
         
         // Contador de visitas totales
         updateVisitorCounter();
@@ -127,10 +138,14 @@ function toggleChat() {
     
     if (chatWindow.classList.contains('open')) {
         chatWindow.classList.remove('open');
-        chatButton.textContent = 'ABRIR CHAT';
+        if (chatButton) {
+            chatButton.innerHTML = '<span class="chat-button-text">ENTRAR AL CHAT</span>';
+        }
     } else {
         chatWindow.classList.add('open');
-        chatButton.textContent = 'CERRAR CHAT';
+        if (chatButton) {
+            chatButton.innerHTML = '<span class="chat-button-text">SALIR DEL CHAT</span>';
+        }
     }
 }
 
@@ -182,8 +197,8 @@ function changeWebcam(room) {
     if (room === 'cocina' || room === 'dormitorio') {
         // Mostrar mensaje de que la webcam está fuera de servicio
         const roomName = room === 'cocina' ? 'Cocina' : 'Dormitorio';
-        console.log(`❌ ${roomName} - FUERA DE SERVICIO`);
-        showWebcamTransition(`${roomName} - FUERA DE SERVICIO`);
+        console.log(`❌ ${roomName} - DESCONECTADO`);
+        showWebcamTransition(`${roomName} - DESCONECTADO`);
         return; // No cambiar la webcam
     }
     
@@ -258,8 +273,8 @@ function showWebcamTransition(roomName) {
     
     document.body.appendChild(transition);
     
-    // Si es el mensaje de fuera de servicio, que dure más tiempo
-    const duration = roomName.includes('FUERA DE SERVICIO') ? 3000 : 1000;
+    // Si es el mensaje de desconectado, que dure más tiempo
+    const duration = roomName.includes('DESCONECTADO') ? 3000 : 1000;
     
     setTimeout(() => {
         document.body.removeChild(transition);
