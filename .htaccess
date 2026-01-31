@@ -13,6 +13,11 @@
     AddOutputFilterByType DEFLATE application/x-javascript
 </IfModule>
 
+# MIME types
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+</IfModule>
+
 # Cache Headers
 <IfModule mod_expires.c>
     ExpiresActive on
@@ -21,6 +26,7 @@
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/jpg "access plus 1 year"
     ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/ico "access plus 1 year"
     ExpiresByType image/icon "access plus 1 year"
